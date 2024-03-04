@@ -20,3 +20,24 @@ const firebaseConfig = {
   messagingSenderId: "630693962922",
   appId: "1:630693962922:web:a9447f760b858bcf781cd3"
 };
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export async function ambilDaftarPembeli() {
+  const refDokumen = collection(db, "pembeli");
+  const kueri = query(refDokumen, orderBy("nama pembeli"));
+  const cuplikanKueri = await getDocs(kueri);
+
+  let hasil = [];
+  cuplikanKueri.forEach((dok) => {
+    hasil.push({
+      id: dok.id,
+      namaPembeli: dok.data().namaPembeli,
+      alamat: dok.data(). alamat,
+      noTlpn: dok.data().noTlpn,
+    });
+  });
+
+  return hasil;
+}
