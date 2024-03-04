@@ -16,9 +16,9 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Nama pembeli</th>
+        <th scope="col">Nama</th>
         <th scope="col">Alamat</th>
-        <th scope="col">No.tlpn</th>
+        <th scope="col">noTlpn</th>
       </tr>
     </thead>
     <tbody>
@@ -31,18 +31,39 @@
     $(document).ready(async function() {
       let elemenDaftar = $("#daftar-pembeli > tbody");
       let daftarPembeli = await ambilDaftarPembeli();
-
+       let nomor = 1;
+       
+      daftarPembeli.forEach((data) => {
+        elemenDaftar.append(
+          '<li class="list-group-item d-flex justify-content-between">' +
+          '<label>' +
+          data.nama +
+          '</label>' +
+          '<div>' +
+          '<a href="#" class="me-2 link-ubah" data="' +
+          data.id +
+          '">Ubah</a>' +
+          ' <button class="btn btn-danger tombol-hapus" data="' +
+          data.id +
+          '">Hapus</button>' +
+          '</div>' +
+          '</li>'
+        );
+      });
       daftarPembeli.forEach((data) => {
         elemenDaftar.append(
           '<tr>' +
-          '<th>' + '</th>' +
-          '<td>' + data.nama pembeli + '</td>' +
+          '<th>' + nomor + '</th>' +
+          '<td>' + data.nama + '</td>' +
           '<td>' + data.alamat + '</td>' +
           '<td>' + data.no.tlpon + '</td>' +
           '</tr>'
         );
+      nomor = nomor + 1;
       });
+      $('#loader').hide();
     });
+    
   </script>
 </body>
 
