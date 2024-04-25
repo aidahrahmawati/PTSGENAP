@@ -33,11 +33,11 @@
 <a href="form-peroduk.html">Tambah data pembeli</a>
   
   <script type="module">
-    import { ambilDaftarProduk, formatAngka } from './main.js';
+    import { ambilDaftarPembeli, formatAngka, hapusPembeli } from './main.js';
     
     $(document).ready(async function() {
-      let elemenDaftar = $("#daftar-produk > tbody");
-      let daftarProduk = await ambilDaftarProduk();
+      let elemenDaftar = $("#daftar-pembeli > tbody");
+      let daftarPembeli = await ambilDaftarPembeli();
       let nomor = 1;
       
       daftarProduk.forEach((data) => {
@@ -46,48 +46,31 @@
           '<th>' + nomor + '</th>' +
           '<tb>' + data.nama + '</tb>' +
           '<tb>' + data.alamat + '</tb>' +
-          '<li class="list-group-item d-flex justify-content-between">' +
-          '<label>' +
-          data.nama +
-          '</label>' +
-          '<div>' +
-          '<a href="#" class="me-2 link-ubah" data="' +
+          '<tb>' + data.noTlpn + '</tb>'
+          + '<tb class="stack-up">' + '<a href="#" class="me-2 link-ubah" data="' +
           data.id +
           '">Ubah</a>' +
           ' <button class="btn btn-danger tombol-hapus" data="' +
           data.id +
-          '">Hapus</button>' +
-          '</div>' +
-          '</li>'
-        );
-        
-        nomor = + 1;
-      });
-      
-    
-          
-
-     
-      daftarProduk.forEach((data) => {
-        elemenDaftar.append(
-          '<tr>' +
-          '<th>' + nomor + '</th>' +
-          '<td>' + data.nama + '</td>' +
-          '<td>' + formatAngka( data.harga) + '</td>' +
-          '<td>' + data.stok + '</td>' +
+          '">Hapus</button>' + '</tb>' +
           '</tr>'
-
         );
         
-
         nomor = nomor + 1;
       });
+      $('.tombol-hapus').click(async function() {
+        await hapusPembeli($(this).attr('data'));
+        location.reload();
+      })
       
-      $('#loader').hide();
+      $('.link-ubah').click(async function() {
+        window.location.replace('ubah-produk.html?docId=' + $(this).attr('data'));
+      })
       
+    $('#loader').hide();
     });
-     
+        
   </script>
-</body>8 <legend></legend>
+</body>
 
 </html>
