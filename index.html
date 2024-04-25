@@ -30,7 +30,7 @@
   
   <img src="loader.gif" style="width: 15em; display: block" id="loader">
 
-<a href="form-peroduk.html">Tambah data pembeli</a>
+<a href=" form data siswa.html">Tambah data pembeli</a>
   
   <script type="module">
     import { ambilDaftarPembeli, formatAngka, hapusPembeli } from './main.js';
@@ -40,7 +40,7 @@
       let daftarPembeli = await ambilDaftarPembeli();
       let nomor = 1;
       
-      daftarProduk.forEach((data) => {
+      daftarPembeli.forEach((data) => {
         elemenDaftar.append(
           '<tr>' +
           '<th>' + nomor + '</th>' +

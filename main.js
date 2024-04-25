@@ -56,7 +56,7 @@ export async function  tambahPembeli(nama, alamat, notlpn) {
     });
     console.log('Berhasil menambah produk' + dokRef.id);
   } catch (e) {
-    Console.log('Gagal menambah produk' + e);
+    console.log('Gagal menambah produk' + e);
   }
    }
    
