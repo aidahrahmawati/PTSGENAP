@@ -14,6 +14,7 @@
 
 <body class="m-3">
   <h1>from data pembeli</h1>
+  
   <form class="mb-3">
     <div class="mb-3">
       <label class="form-label">Nama pembeli</label>
@@ -23,27 +24,27 @@
       <label class="form-label">alamat</label>
       <input type="text" class="form-control" id="input-harga">
     </div>
-     <div class="mb-3">
-      <label class="form-label">telpon</label>
+      <div class="mb-3">
+      <label class="form-label">noTlpn</label>
       <input type="text" class="form-control" id="input-stok">
     </div>
     <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
   </form>
   
   
-  <a href="index.html">lihat daftar fembeli</a>
+  <a href="index.html">lihat daftar pembeli</a>
   
   <script type="module">
-    import { tambahProduk } from './main.js';
+    import { tambahPembeli } from './main.js';
     
     let tombolTambah = document.getElementById('tombol-tambah');
-    let elemenNamaProduk = document.getElementById('input-nama');
-    let elemenHarga = document.getElementById('input-harga');
-    let elemenstok = document.getElementById('input-stok');
+    let elemenNamaPembeli = document.getElementById('input-nama');
+    let elemenAlamat = document.getElementById('input-alamat');
+    let elemenNoTlpn = document.getElementById('input-noTlpn');
     
     tombolTambah.addEventListener('click', async function (e) {
       e.preventDefault();
-      await tambahProduk(elemenNamaProduk.value, elemenHarga.value, elemenstok.value);
+      await tambahPembeli(elemenNamaPembeli.value, elemenAlamat.value, elemenNoTlpn.value);
       window.location.href = 'index.html';
     });
   </script>
