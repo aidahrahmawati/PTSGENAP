@@ -36,7 +36,7 @@ export async function ambilDaftarPembeli() {
       id: dok.id,
       nama: dok.data().nama,
       alamat: dok.data().alamat,
-      notlpn: dok.data().noTlpn,
+      notlpn: dok.data().NoTlpn,
     });
   });
   
@@ -47,12 +47,12 @@ export function formatAngka(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function  tambahPembeli(nama, alamat, noTlpn) {
+export async function  tambahPembeli(nama, alamat, NoTlpn) {
   try {
     const dokRef = await addDoc(collection(db, 'pembeli'), {
       nama: nama,
       alamat: alamat,
-      notlpn: noTlpn
+      noTlpn: noTlpn
     });
     console.log('Berhasil menambah produk ' + dokRef.id);
   } catch (e) {
