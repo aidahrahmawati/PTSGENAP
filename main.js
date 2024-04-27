@@ -49,12 +49,12 @@ export function formatAngka(x) {
 
 export async function  tambahPembeli(nama, alamat, noTlpn) {
   try {
-    const dokRef = await addDoc(collection(db, 'pembeli'),{
+    const dokRef = await addDoc(collection(db, 'pembeli'), {
       nama: nama,
       alamat: alamat,
       notlpn: noTlpn
     });
-    console.log('Berhasil menambah produk' + dokRef.id);
+    console.log('Berhasil menambah produk ' + dokRef.id);
   } catch (e) {
     console.log('Gagal menambah produk' + e);
   }
