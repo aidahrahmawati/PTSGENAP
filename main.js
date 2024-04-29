@@ -36,7 +36,7 @@ export async function ambilDaftarPembeli() {
       id: dok.id,
       nama: dok.data().nama,
       alamat: dok.data().alamat,
-      notlpn: dok.data().noTlpn,
+      noTlpn: dok.data().noTlpn,
     });
   });
   
